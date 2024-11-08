@@ -48,7 +48,7 @@ def new_post():
     post_form = CreatePostForm()
     if post_form.validate_on_submit():
         post = Post(title = post_form.title.data, content = post_form.content.data, 
-                    like_count = post_form.likeCount.data, category = "Teme", user=current_user)
+                    category = "Teme", user=current_user)
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('pages.forum/teme'))
@@ -114,7 +114,7 @@ def account():
             picture_file = save_picture(update_form.picture_data)
             current_user.image_file = picture_file
         
-        current_user.useername = update_form.username.data
+        current_user.username = update_form.username.data
         current_user.email = update_form.email.data
         db.session.commit()
         
