@@ -27,7 +27,7 @@ def home():
     return render_template('base.html', title='Acasa')
 
 
-@pages.route('/account', methods=['GET','POST'])
+@pages.route('/profile', methods=['GET','POST'])
 @login_required
 def profile():
     form = UpdateAccountForm()
@@ -39,7 +39,7 @@ def profile():
         
         db.session.commit()
         
-        return redirect(url_for('pages.account'))
+        return redirect(url_for('pages.profile'))
 
     img_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('pages/profile.html', image_file=img_file, form=form)
