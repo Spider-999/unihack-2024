@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     correct_answers= db.Column(db.Integer(), default= 0)
     date_joined= db.Column(db.DateTime(), nullable= False, default= func.now())
     user_role= db.Column(db.String(10), nullable= False) 
-    
+        
     # Set time to yesterday for newly created user for last exercise solved
     last_exercise= db.Column(db.DateTime(), nullable= True, default= datetime.now() - timedelta(1))
     
@@ -105,15 +105,3 @@ class Lesson(db.Model):
     grade_id= db.Column(db.Integer(), db.ForeignKey('grade.id'), nullable= False)
     content= db.Column(db.Text, nullable= False)
     questions= db.relationship('Question', backref= 'lesson', lazy= True)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
