@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, Email
 
 
@@ -22,3 +22,19 @@ class LoginForm(FlaskForm):
 class UpdateAccountForm(FlaskForm):
     picture = FileField('Schimba Avatarul', validators=[FileAllowed(['jpg','png'])])
     submit = SubmitField('Actualizeaza')
+
+
+class CreatePostForm(FlaskForm):
+    title = StringField('Titlu', validators=[DataRequired()])
+    content = TextAreaField('Continut', validators=[DataRequired()])
+    submit = SubmitField('Posteaza')
+
+
+class PostComment(FlaskForm):
+    content = TextAreaField('Continut', validators=[DataRequired()])
+    submit = SubmitField('Comenteaza')
+
+
+class QuestionForm(FlaskForm):
+    question = StringField('Intrebare')
+    submit = SubmitField('Raspunde')
