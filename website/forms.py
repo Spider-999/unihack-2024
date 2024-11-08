@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email
 
@@ -16,3 +17,8 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Autentificare')
+
+
+class UpdateAccountForm(FlaskForm):
+    picture = FileField('Schimba Avatarul', validators=[FileAllowed(['jpg','png'])])
+    submit = SubmitField('Actualizeaza')

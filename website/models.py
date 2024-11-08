@@ -10,3 +10,4 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(256), nullable=False)
     user_role = db.Column(db.String(10), nullable=False)
     date_joined = db.Column(db.DateTime(), nullable=False, default=datetime.now())
+    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
