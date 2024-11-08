@@ -11,8 +11,20 @@
             
             <!-- Email input -->
             <div class="form-outline mb-4">
-                {{ form.email(class="form-control", id="form2Example1") }}
                 <label class="form-label" for="form2Example1">Email address</label>
+                
+                {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+
+                {% else %}
+                    {{ form.email(class="form-control", id="form2Example1") }}
+                {% endif %}
             </div>
 
             <!-- Password input -->

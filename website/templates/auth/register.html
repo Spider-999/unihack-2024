@@ -11,14 +11,32 @@
             
             <!-- Username input -->
             <div class="form-outline mb-4">
-                {{ form.username(class="form-control", id="Username") }}
                 <label class="form-label" for="Username">Username</label>
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control", id="Username") }}
+                {% endif %}
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-                {{ form.email(class="form-control", id="email") }}
                 <label class="form-label" for="email">Email</label>
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control", id="email") }}
+                {% endif %}
             </div>
 
             <!-- Password input -->

@@ -42,6 +42,40 @@ def create_app():
     return app
 
 
+def load_data(file, model):
+    with open(file, 'r') as file:
+        data = json.load(file)
+        
+        match model.__name__:
+            case "Question":
+                for item in data:
+                    instance = model(**item, user_id=current_user.id)
+                    # check if the model doesnt already exist in the db
+                    if not model.query.filter_by(**item).first():
+                        db.session.add(instance)
+            case "Lesson"|"Grade":
+                for item in data:
+                    instance = model(**item)
+                    # check if the model doesnt already exist in the db
+                    if not model.query.filter_by(**item).first():
+                        db.session.add(instance)
+            case _:
+                print("[load_data default] Ceva nu merge")
+
+        try:
+            db.session.commit()
+        except:
+            print("[load_data exception] Nimic de adaugat in baza de date")
+            
+
+# TO DO: move this function in another file with utility functions
+def populate_db():
+    from .models import Grade, Lesson, Question
+    load_data('Python/Project0/preload_data/grades.json', Grade)
+    load_data('Python/Project0/preload_data/lessons.json', Lesson)
+    load_data('Python/Project0/preload_data/questions.json', Question)
+    
+
 def create_db(app):
     if not os.path.exists('website/db.sqlite3'):
         with app.app_context():

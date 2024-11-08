@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for
-from flask_login import login_user, logout_user, login_required
+from flask import Blueprint, render_template, redirect, url_for, request
+from flask_login import login_user, logout_user, login_required, current_user
 from .forms import RegisterForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -11,16 +11,19 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('pages.index'))
+    
     form = RegisterForm()
-
-    if form.validate_on_submit():
-        print('hello')
-        password_hash = generate_password_hash(form.password.data, method='scrypt')
-        user = User(username=form.username.data, email=form.email.data, password=password_hash, user_role=form.user_role.data)
-        db.session.add(user)
-        db.session.commit()
-
-        return redirect(url_for('auth.login'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            password_hash = generate_password_hash(form.password.data, method="scrypt")
+            user = User(username=form.username.data, email=form.email.data, password=password_hash, 
+                        user_role=form.user_role.data)
+    
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('auth.login'))
     return render_template('auth/register.html', title='Inregistrare', form=form)
 
 
