@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     # Set time to yesterday for newly created user for last exercise solved
     last_exercise= db.Column(db.DateTime(), nullable= True, default= datetime.now() - timedelta(1))
     
-    # lazy -> How data is loaded from the database ( load the data in one go from the db )
+    # lazy -> How data is loaded from the database ( load the data in one go from the database )
     # backref -> Use the author to get the user who created the post
     
     posts= db.relationship('Post', backref= 'user', lazy= True)
