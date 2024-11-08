@@ -2,69 +2,120 @@
 
 {% block content %}
 
-<div class="px-4 pt-5 pb-5 my-2 text-center border-top border-bottom">
-
-  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="p-5 mb-4 bg-light rounded-3 text-center shadow-lg">
+        <div class="container py-5">
+            <h1 class="display-5 fw-bold text-primary">Bine ați venit la FunLearning!</h1>
+            <p class="fs-4">Învățați Matematică, Programare și Fizică într-un mod interactiv și "fun".</p>
+            <a href="#" class="btn btn-primary btn-lg">Începeți Să Învățați</a>
+        </div>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
-</div>
+    <!-- Features Section -->
+    <section class="text-center my-5">
+        <h2 class="mb-4">De ce să alegeți FunLearning?</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="/static/math.jpg" class="card-img-top" alt="Matematică">
+                    <div class="card-body">
+                        <h5 class="card-title">Matematică Interactivă</h5>
+                        <p class="card-text">Rezolvați puzzle-uri și provocări pentru a învăța concepte matematice complexe!</p>
+                        <a href="#" class="btn btn-outline-primary">Învățați Matematică</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="/static/programming.jpg" class="card-img-top" alt="Programare">
+                    <div class="card-body">
+                        <h5 class="card-title">Programare Distractivă</h5>
+                        <p class="card-text">Programați-vă drumul prin jocuri captivante și dobândiți abilități de programare!</p>
+                        <a href="#" class="btn btn-outline-primary">Învățați Programare</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="/static/physics.jpg" class="card-img-top" alt="Fizică">
+                    <div class="card-body">
+                        <h5 class="card-title">Fizică Interesantă</h5>
+                        <p class="card-text">Explorați conceptele de fizică cu simulări și experimente din lumea reală.</p>
+                        <a href="#" class="btn btn-outline-primary">Învățați Fizică</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis">Learning Can Be Fun</h1>
-    <div class="col-lg-6 mx-auto">
-  <p class="lead mb-4">Suntem o echipă de studenți ai Universității Politehnica Timișoara și ne propunem să sprijinim noile generații de elevi care întâmpină dificultăți în domeniile matematicii și informaticii, oferindu-le suport și pregătire de calitate.</p>
-  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-  </div>
-</div>
-<div class="overflow-hidden" style="max-height: 30vh;">
-  <div class="container px-5">
-    <img src="/static/homescreen.jpeg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500">
-  </div>
-</div>
+    <!-- Gamification & Rewards Section -->
+    <section class="text-center my-5">
+        <h2 class="mb-4">Câștigați Recompense pe Măsură ce Învățați!</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="p-3 bg-primary text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-trophy fs-1"></i>
+                </div>
+                <h5>Colectați Insigne</h5>
+                <p>Câștigați insigne pentru finalizarea lecțiilor și provocărilor.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-secondary text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-gem fs-1"></i>
+                </div>
+                <h5>Progres Atingând Niveluri Noi</h5>
+                <p>Avansați prin niveluri pe măsură ce stăpâniți noi subiecte.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3 bg-warning text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-lightning-charge fs-1"></i>
+                </div>
+                <h5>Provocați Prietenii</h5>
+                <p>Intreceti-va cu prietenii și vedeți cine se află în fruntea clasamentului!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="my-5">
+        <h2 class="text-center mb-4">Ce Spun Utilizatorii Noștri</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <blockquote class="blockquote">
+                        <p class="mb-4">"FunLearning a făcut ca învățarea matematicii să fie mult mai plăcută. Nu credeam că voi ajunge să aștept cu nerăbdare să învăț!"</p>
+                        <footer class="blockquote-footer">Alex M., Clasa a 10-a</footer>
+                    </blockquote>
+                </div>
+                <div class="carousel-item text-center">
+                    <blockquote class="blockquote">
+                        <p class="mb-4">"Provocările de programare gamificate sunt extraordinare. Am învățat atât de mult într-un timp scurt!"</p>
+                        <footer class="blockquote-footer">Sara T., Clasa a 11-a</footer>
+                    </blockquote>
+                </div>
+                <div class="carousel-item text-center">
+                    <blockquote class="blockquote">
+                        <p class="mb-4">"Experimentele de fizică sunt acum partea mea preferată a zilei. Înțeleg acum aplicațiile reale!"</p>
+                        <footer class="blockquote-footer">John P., Clasa a 9-a</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Următorul</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center my-5">
+        <h2 class="mb-3">Ești Pregătit să Îți Începi Călătoria cu FunLearning?</h2>
+        <a href="#" class="btn btn-success btn-lg">Alătură-te Acum Gratuit</a>
+    </section>
 
 {% endblock %}
