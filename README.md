@@ -1,6 +1,6 @@
-# unihack-2024
+# | unihack-2024 | 
 
-## Install requirements for the project
-pip install -r requirements.txt
+#  | Branch-ul lui Alex Daniel @ Copyright |
 
-# branch-ul lui Alex Daniel
+#  | Date-created: 08.11.2024 |
+#  | Back-end and Front-end Developer |
