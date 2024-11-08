@@ -35,7 +35,8 @@ def lessons(page_id, capitol_id, lesson):
                     
                 forms[i].question.data= ''
             
-            return render_template('pages/invata/clase_mate/lectii_mate/capitol{capitol_id}/lectia{lesson}.html')
+        return render_template('pages/invata/clase_mate/lectii_mate/capitol{capitol_id}/lectia{lesson}.html',
+                                   page_id= page_id, capitol_id= capitol_id, lesson= lesson, questions = questions, forms= forms)
    
     except:
         return redirect(url_for('learn.classes', page_id= page_id))
