@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="card-group">
+   
+    <div class="card">
+        <a href="{{ url_for('pages.invata_matematica') }}">
+            <img class="card-img-top" src="/static/materii/matematica.jpg" alt="Card image cap">
+        </a>
+       
+            <div class="card-body">
+                <h5 class="card-title">Matematica</h5>
+                <p class="card-text">Invata matematica</p>
+            </div>
+    </div>
+
+    
+    <div class="card">
+        <a href="{{ url_for('pages.invata_info') }}">
+            <img class="card-img-top" src="/static/materii/informatica.jpg" alt="Card image cap">
+        </a>
+        
+            <div class="card-body">
+                <h5 class="card-title">Informatica</h5>
+                <p class="card-text">Invata informatica</p>
+            </div>
+    </div>
+   
+
+    
+    <div class="card">
+        <a href="fizica.html">
+        <img class="card-img-top" src="/static/materii/fizica.jpg" alt="Card image cap">
+        </a>
+
+            <div class="card-body">
+                <h5 class="card-title">Fizica</h5>
+                <p class="card-text">Invata fizica</p>
+            </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

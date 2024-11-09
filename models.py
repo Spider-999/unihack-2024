@@ -105,3 +105,8 @@ class Lesson(db.Model):
     grade_id= db.Column(db.Integer(), db.ForeignKey('grade.id'), nullable= False)
     content= db.Column(db.Text, nullable= False)
     questions= db.relationship('Question', backref= 'lesson', lazy= True)
+    
+class Subject(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name= db.Column(db.String(128), nullable= False)
+    grades= db.relationship('Grades', backref= 'subject', lazy= True)

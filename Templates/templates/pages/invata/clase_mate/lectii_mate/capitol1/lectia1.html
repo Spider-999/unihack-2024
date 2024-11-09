@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+    .card{
+        box-shadow: 0 8px 8px 0 rgb(0, 0, 0, 0.1);
+        border-radius: 4px;
+        width: device-width;
+        height: device-height;
+        background-image: linear-gradient(to bottom , rgba(1, 207, 231, 0.2), rgba(1, 155, 255,0.3));
+        
+        align: center;
+    }
+
+    .container {
+        padding: 4px 4px;
+    }
+
+    a:hover{
+        box-shadow: 0 0px 8px 0 rgba(0,0,0,0.7);
+    }
+
+    pc
+    {
+        font-family: Verdana;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;  
+        text-align: justify;
+    }
+
+    p1
+    {
+        font-family: Verdana;
+        padding: 0px 24px;
+    }
+    h1
+    {
+        font-family: Verdana;
+        padding: 0px 12px;
+    }
+    h2
+    {
+        font-family: Verdana;
+        padding: 0px 12px;
+    }
+    h3
+    {
+        font-family: Verdana;
+        padding: 0px 12px;
+    }
+    h4
+    {
+        font-family: Verdana;
+        padding: 0px 12px;
+    }
+    pt
+    {
+        font-family: Verdana;
+        padding: 0px 8px;
+    }
+</style>
+
+
+
+<div class="card" align="justify">
+    <div class= "container">
+    <br>
+    <h3 align="justify"><b><u>Compararea si ordonarea numerelor naturale</u></b></h3>
+        <p1>
+            <br><br>
+            <p1>   Prin ordonarea numerelor naturale înțelegem scrierea în ordine crescătoare sau descrecătoare:</p1>
+            <br>
+            <p1>   <b>ordonare crescătoare</b>: numerele sunt scrise de la cel mai mic la cel mai mare; </p1>
+            <br>
+            <p1>   <b>ordonare descrescătoare</b>: numerele sunt scrise de la cel mai mare la cel mai mic; </p1>
+            <br>
+        </p1>
+    <br>
+    </div>
+</div>
+
+<form method="POST">
+
+    {% for form in forms %}
+        {{ form.hidden_tag() }}
+        {{ questions[loop.index0].question_text }}
+        
+        {% if questions[loop.index0].completed %}
+            <p> {{ form.question(readonly=true) }} raspuns corect! </p>
+        {% else %}
+            <p>
+                {{ form.question(class="form-control") }}
+            </p>
+
+            <p>
+                {{ form.submit(class="btn btn-primary") }}
+            </p>
+        {% endif %}
+    {% endfor %}
+
+</form>
+
+
+{% endblock %}

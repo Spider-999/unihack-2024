@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center centered-container vh-100">
+    <div class="form-container p-4 border rounded-5" style="width: 400px; max-width: 100%;">
+        <h3 class="text-center mb-4">Sign Up</h3>
+        
+        <!-- Flask-WTF Form -->
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="Username">Username</label>
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username(class="form-control", id="Username") }}
+                {% endif %}
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label>
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control", id="email") }}
+                {% endif %}
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                {{ form.password(class="form-control", id="password") }}
+                <label class="form-label" for="password">Password</label>
+            </div>
+
+            <!-- Confirm Password input -->
+            <div class="form-outline mb-4">
+                {{ form.password_confirm(class="form-control", id="confirmPassword") }}
+                <label class="form-label" for="confirmPassword">Confirm Password</label>
+            </div>
+
+            <!-- User Role dropdown (if applicable) -->
+            <div class="form-outline mb-4">
+                {{ form.user_role(class="form-control") }}
+            </div>
+
+            <!-- Remember me checkbox -->
+            <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="form2Example31" checked />
+                        <label class="form-check-label" for="form2Example31"> Remember me </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            {{ form.submit(class="btn btn-primary btn-block mb-4 w-100") }}
+
+        </form>
+    </div>
+</div>
+{% endblock %}

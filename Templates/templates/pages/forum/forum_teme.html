@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <a href="{{ url_for('pages.new_post') }}">Creeaza un post</a>
+
+        {% for post in posts.items %}
+            <article class="card md-5" style="width: 18rem;">
+                <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.user.image_file) }}">
+                <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2">{{ post.user.username }}</a>
+                    <small class="text-muted">{{ post.date_posted.strftime('%X %d-%m-%Y') }}</small>
+                </div>
+                <h2><a class="article-title" href="{{ url_for('pages.forum_post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                </div>
+            </article>
+        {% endfor %}
+
+        {% for page_number in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_number %}
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('pages.forum_teme', page=page_number) }}"> {{ page_number }} </a>
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+</div>
+{% endblock %}
