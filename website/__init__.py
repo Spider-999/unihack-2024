@@ -76,8 +76,8 @@ def load_data(file, model):
 def populate_db():
     from .models import Grade, Lesson, Question, Badge
     
-    load_data('Python/Project0/preload_data/grades.json', Grade)
-    load_data('Python/Project0/preload_data/lessons.json', Lesson)
+    load_data('unihack-2024/preload_data/grades.json', Grade)
+    load_data('unihack-2024/preload_data/lessons.json', Lesson)
     load_data('unihack-2024/preload_data/questions.json', Question)
     load_data('unihack-2024/preload_data/badges.json', Badge)
     
