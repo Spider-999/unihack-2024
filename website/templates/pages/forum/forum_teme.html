@@ -25,35 +25,37 @@
     <div class="row">
         {% for post in posts.items %}
             <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <article class="card shadow-sm" style="border-radius: 10px;">
+                <article class="card bg-tertiary text-white shadow-sm border-0 p-3">
                     <!-- Profile Image and Metadata -->
-                    <div class="card-header d-flex justify-content-start align-items-center">
+                    <div class="card-header d-flex align-items-center bg-light text-dark border-0">
                         <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.user.image_file) }}" 
-                             alt="User Avatar" style="width: 50px; height: 50px; object-fit: cover; border: 2px solid #ddd;">
+                             alt="User Avatar" style="width: 50px; height: 50px; object-fit: cover; border: 2px solid rgba(0, 0, 0, 0.1);">
                         
-                        <!-- Added margin-left for spacing -->
-                        <div class="ml-3">
-                            <a class="h6 mb-0" href="#">{{ post.user.username }}</a>
+                        <!-- Added ms-3 for spacing -->
+                        <div class="ms-3">
+                            <a class="h6 mb-0 text-dark text-decoration-none" href="#">{{ post.user.username }}</a>
                             <small class="text-muted d-block">{{ post.date_posted.strftime('%X %d-%m-%Y') }}</small>
                         </div>
                     </div>
                     <!-- Post Title -->
-                    <div class="card-body">
+                    <div class="card-body bg-white text-dark rounded-bottom">
                         <h5 class="card-title">
                             <a href="{{ url_for('pages.forum_post', post_id=post.id) }}" class="text-decoration-none text-primary">{{ post.title }}</a>
                         </h5>
-                        
                     </div>
                 </article>
             </div>
         {% endfor %}
     </div>
+</div>
+
+
 
     <!-- Pagination -->
     <div class="pagination-container text-center">
         {% for page_number in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_number %}
-                <a class="btn btn-outline-info mb-4" href="{{ url_for('pages.forum_teme', page=page_number) }}"> 
+                <a class="btn btn-primary rounded-circle btn-outline-info mb-4" href="{{ url_for('pages.forum_teme', page=page_number) }}"> 
                     {{ page_number }} 
                 </a>
             {% else %}
