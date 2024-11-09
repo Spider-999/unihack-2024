@@ -7,20 +7,34 @@
         box-shadow: 0 8px 8px 0 rgb(0, 0, 0, 0.5);
         transition: 0.3s;
         border-radius: 10px;
-        background-image: linear-gradient(to bottom , rgba(1, 207, 231, 0.2), rgba(1, 155, 255,0.3));
+        background-image: linear-gradient(to bottom , rgba(13, 110, 253, 0.7), rgba(13, 110, 253, 1));
         width: 100%;
     }
 
     .row:hover {
+        background-image: linear-gradient(to bottom , rgba(13, 110, 253, 0.6), rgba(13, 110, 253, 0.9));
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+        border-radius: 6px;
+        transition: 0.3s;
     }
 
-    .container {
-        padding: 32px 8px;
+    a{
+        border-radius: 14px;
+        transition: 0.3s;
+        box-shadow: 0 0px 8px 0 rgba(0,0,0,0.2);
+        content-align: middle;
     }
 
     a:hover{
-        box-shadow: 0 0px 8px 0 rgba(0,0,0,0.7);
+        border-radius: 10px;
+        background-image: linear-gradient(to bottom , rgba(13, 110, 253, 0.6), rgba(13, 110, 253, 0.9));
+        transition: 0.3s;
+        box-shadow: 0 0px 8px 0 rgba(0,0,0,0.8);
+    }
+
+    .container {
+
+        padding: 32px 8px;
     }
 
     pc
@@ -32,36 +46,40 @@
     }
 </style>
 
-<div class="container">
+<div class="container" align="center">
     <div class="row">
         <h3>CAPITOL 1: NUMERE NATURALE</h3>
         <ul class="list-group">
+            <br>
             {% for lesson in lessons %}
 
             {% if lesson.id < 4 %}
-                <a href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
+                <a style="margin: auto; width: 98%;" href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
                     {{lesson.title}}
+                
                 </a>
             {% endif %}
 
             {% endfor %}
+            <br>
         </ul>
     </div>
-        
 </br>
 
     <div class="row">
         <h3>CAPITOL 2: DIVIZIBILITATEA numerelor naturale</h3>
         <ul class="list-group">
+            <br>
             {% for lesson in lessons %}
 
             {% if lesson.id >= 4 and lesson.id < 8%}
-                <a href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
+                <a style="margin: auto; width: 98%;" href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
                     {{lesson.title}}
                 </a>
             {% endif %}
 
             {% endfor %}
+            <br>
         </ul>
     </div>
     </br>
@@ -69,15 +87,17 @@
     <div class="row">
         <h3>CAPITOL 3: FRACȚII ORDINARE:</h3>
         <ul class="list-group">
+            <br>
             {% for lesson in lessons %}
 
             {% if lesson.id >= 8 and lesson.id < 11 %}
-                <a href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
+                <a style="margin: auto; width: 98%;" href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
                     {{lesson.title}}
                 </a>
             {% endif %}
 
             {% endfor %}
+            <br>
         </ul>
     </div>
     </br>
@@ -85,15 +105,17 @@
     <div class="row">
         <h3>CAPITOL 4: FRACȚII ZECIMALE:</h3>
         <ul class="list-group">  
+            <br>
             {% for lesson in lessons %}
 
             {% if lesson.id == 11%}
-                <a href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
+                <a style="margin: auto; width: 98%;" href="{{ url_for('learn.lessons', page_id=5, capitol_id=1, lesson=lesson.id) }}" class="list-group-item list-group-item-action">
                     {{lesson.title}}
                 </a>
             {% endif %}
 
             {% endfor %}
+            <br>
         </a>
         </ul>
     </div>
