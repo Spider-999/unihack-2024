@@ -9,7 +9,7 @@
         border-radius: 4px;
         width: device-width;
         height: device-height;
-        background-image: linear-gradient(to bottom , rgba(1, 207, 231, 0.2), rgba(1, 155, 255,0.3));
+        background-image: linear-gradient(to bottom , rgba(48, 59, 209, 0.2), rgba(1, 155, 255,0.3));
         
         align: center;
     }
@@ -62,8 +62,6 @@
     }
 </style>
 
-
-
 <div class="card" align="justify">
     <div class= "container">
     <br>
@@ -81,8 +79,20 @@
     </div>
 </div>
 
-<form method="POST">
+<!-- Form card -->
 
+<div class= "card" align= "justify">
+
+<br>
+
+<form method="POST">
+    <div class= "container">
+
+    <br>
+
+    <h3 align="justify"><b><u>Exercitii</u></b></h3>    
+
+    <br>
     {% for form in forms %}
         {{ form.hidden_tag() }}
         {{ questions[loop.index0].question_text }}
@@ -90,17 +100,23 @@
         {% if questions[loop.index0].completed %}
             <p> {{ form.question(readonly=true) }} raspuns corect! </p>
         {% else %}
-            <p>
-                {{ form.question(class="form-control") }}
-            </p>
+                <p>
+                    {{ form.question(class="form-control") }}
+                </p>
 
-            <p>
-                {{ form.submit(class="btn btn-primary") }}
-            </p>
+                <p>
+                    {{ form.submit(class="btn btn-primary") }}
+                </p>
+            
         {% endif %}
     {% endfor %}
-
+    </div>
 </form>
 
+<br>
+
+</div>
+
+<!-- end Form card -->
 
 {% endblock %}
