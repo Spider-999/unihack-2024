@@ -15,8 +15,9 @@
                     <div>
                         <h3>Level: {{ current_user.level }}</h3>
                             <div class="progress">
-                                <div id="experienceProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
-                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">0%</div>
+                                <div id="experienceBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" 
+                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;"
+                                data-experience-percentage="{{ current_user.experience | tojson }}"></div>
                             </div>
                             <h5>{{current_user.experience}} experienta</h5>
                     </div>
@@ -111,47 +112,23 @@
 </div>
 
 <script>
-    let currentExperience = current_user.experience; // Current experience
 
-    const maxExperience = 100; // Maximum experience for the level
+    document.addEventListener('DOMContentLoaded', function() {
 
+        const experience = {{ experience }};
 
-    function updateProgress() 
-    {
-        fetch('/profile')
+        const totalExperience = {{ total_experience }};
 
-            .then(response => response.json())
-
-            .then(data => {
-
-                const experience = data.experience;
-                
-                const maxExperience = 50;
-
-                const percentage = 25;
+        const percentage = (experience / totalExperience) * 100;
 
 
-                // Update the progress bar
+        const experienceBar = document.getElementById('experienceBar');
 
-                const progressBar = document.getElementById('experienceProgress');
+        experienceBar.style.width = percentage + '%';
 
-                progressBar.style.width = percentage + '%';
-                progressBar.setAttribute('aria-valuenow', percentage);
-                progressBar.innerText = Math.round(percentage) + '%';
+        experienceBar.setAttribute('aria-valuenow', experience);
 
-                console.log(experience)
-                if (experience >= maxExperience) {
-
-                    alert("Congratulations! You've reached the maximum experience level!");
-
-                }
-
-            });
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-
-        updateExperience(); // Automatically updates progress on page load
+        experienceBar.innerText = experience + ' / ' + totalExperience;
 
     });
 

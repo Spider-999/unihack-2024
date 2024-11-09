@@ -43,11 +43,13 @@ def profile():
         return redirect(url_for('pages.profile'))
 
     img_file = url_for('static', filename='profile_pics/' + current_user.image_file)
-    return render_template('pages/profile.html', image_file=img_file, form=form)
+    return render_template('pages/profile.html', image_file=img_file, form=form, experience=current_user.experience, total_experience = 50)
 
 
 @pages.route('/profile/get_experience')
+@login_required
 def get_experience():
+    print(current_user.experience)
     return jsonify({"experience":current_user.experience})
 
 
@@ -74,7 +76,7 @@ def forum():
 @login_required
 def forum_teme():
     page = request.args.get('page', 1, type=int)
-    posts = Post.query.filter_by(category='Teme').order_by(Post.date_posted.desc()).paginate(page=page, per_page=5)
+    posts = Post.query.filter_by(category='Teme').order_by(Post.date_posted.desc()).paginate(page=page, per_page=6)
     return render_template('pages/forum/forum_teme.html', posts=posts)
 
 

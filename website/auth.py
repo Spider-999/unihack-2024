@@ -12,7 +12,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('pages.index'))
+        return redirect(url_for('pages.home'))
     
     form = RegisterForm()
     if request.method == 'POST':
