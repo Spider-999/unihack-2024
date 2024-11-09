@@ -2,28 +2,65 @@
 
 {% block content %}
 
-<div class="container mt-5">
-    <a href="{{ url_for('pages.new_post') }}">Creeaza un post</a>
+<div class="container mt-3">
+    <img src="{{ url_for('static', filename='teme.png') }}" 
+         alt="Responsive Image" 
+         class="img-fluid responsive-banner rounded shadow-lg">
+</div>
 
+<div class="container mt-5 d-flex justify-content-end">
+    <!-- Ajutor button -->
+    <a href="{{ url_for('pages.home') }}" class="btn btn-outline-primary rounded-circle me-2" 
+       data-bs-toggle="tooltip" data-bs-placement="left" title="Ajutor">
+        <i class="bi bi-question-lg"></i>
+    </a>
+    <!-- Create Post button -->
+    <a href="{{ url_for('pages.new_post') }}" class="btn btn-outline-primary rounded-circle" 
+       data-bs-toggle="tooltip" data-bs-placement="left" title="Creeaza un post">
+        <i class="bi bi-plus-lg"></i>
+    </a>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
         {% for post in posts.items %}
-            <article class="card md-5" style="width: 18rem;">
-                <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.user.image_file) }}">
-                <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2">{{ post.user.username }}</a>
-                    <small class="text-muted">{{ post.date_posted.strftime('%X %d-%m-%Y') }}</small>
-                </div>
-                <h2><a class="article-title" href="{{ url_for('pages.forum_post', post_id=post.id) }}">{{ post.title }}</a></h2>
-                </div>
-            </article>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <article class="card shadow-sm" style="border-radius: 10px;">
+                    <!-- Profile Image and Metadata -->
+                    <div class="card-header d-flex justify-content-start align-items-center">
+                        <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.user.image_file) }}" 
+                             alt="User Avatar" style="width: 50px; height: 50px; object-fit: cover; border: 2px solid #ddd;">
+                        
+                        <!-- Added margin-left for spacing -->
+                        <div class="ml-3">
+                            <a class="h6 mb-0" href="#">{{ post.user.username }}</a>
+                            <small class="text-muted d-block">{{ post.date_posted.strftime('%X %d-%m-%Y') }}</small>
+                        </div>
+                    </div>
+                    <!-- Post Title -->
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ url_for('pages.forum_post', post_id=post.id) }}" class="text-decoration-none text-primary">{{ post.title }}</a>
+                        </h5>
+                        
+                    </div>
+                </article>
+            </div>
         {% endfor %}
+    </div>
 
+    <!-- Pagination -->
+    <div class="pagination-container text-center">
         {% for page_number in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
             {% if page_number %}
-                <a class="btn btn-outline-info mb-4" href="{{ url_for('pages.forum_teme', page=page_number) }}"> {{ page_number }} </a>
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('pages.forum_teme', page=page_number) }}"> 
+                    {{ page_number }} 
+                </a>
             {% else %}
                 ...
             {% endif %}
         {% endfor %}
+    </div>
 </div>
+
 {% endblock %}
