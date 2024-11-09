@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import Blueprint, render_template, redirect, url_for
 from flask_login import current_user, login_required
 from .forms import QuestionForm
 from .models import Question, User
@@ -30,13 +30,15 @@ def lessons(page_id, capitol_id, lesson):
         for i in range(0, len(forms)):
             if not questions[i].completed:
                 
-                print(questions[i])
                 if forms[i].validate_on_submit() and forms[i].question.data == questions[i].answer:
                     questions[i].completed = True
                     user = User.query.get(current_user.id)
                     user.correct_answers += 1
+                    user.experience += 10
                     db.session.commit()
                     user.update_streak()
+                    user.award_badge()
+                    user.level_up()
             forms[i].question.data = ''
         
         return render_template(f'pages/invata/clase_mate/lectii_mate/capitol{capitol_id}/lectia{lesson}.html',

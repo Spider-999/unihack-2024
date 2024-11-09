@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, current_app, url_for, request, redirect, abort
+from flask import Blueprint, render_template, current_app, url_for, request, redirect, abort, jsonify
 from flask_login import login_required, current_user
 from PIL import Image
 import secrets
@@ -46,6 +46,11 @@ def profile():
     return render_template('pages/profile.html', image_file=img_file, form=form)
 
 
+@pages.route('/profile/get_experience')
+def get_experience():
+    return jsonify({"experience":current_user.experience})
+
+
 @pages.route("/forum/teme/new_post", methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -57,7 +62,7 @@ def new_post():
         return redirect(url_for('pages.forum_teme'))
     
     return render_template('pages/forum/create_post.html', form=post_form, legend='New Post')
-
+    
 
 @pages.route("/forum")
 @login_required
@@ -120,3 +125,20 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     return redirect(url_for('pages.forum_teme'))
+
+@pages.route("/invata")
+@login_required
+def invata():
+    return render_template('pages/invata/invata.html')
+
+
+@pages.route("/invata/matematica")
+@login_required
+def invata_matematica():
+    return render_template('pages/invata/matematica.html')
+
+
+@pages.route("/invata/informatica")
+@login_required
+def invata_info():
+    return render_template('pages/invata/informatica.html')

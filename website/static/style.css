@@ -16,6 +16,13 @@
 }
 
 
+.badge-img
+{
+    height: 64px;
+    width: 64px;
+}
+
+
 .navbar
 {
     height: 120px;

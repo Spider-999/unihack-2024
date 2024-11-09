@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, request
 from flask_login import login_user, logout_user, login_required, current_user
 from .forms import RegisterForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
+from . import db, populate_db
 from .models import User
 
 
@@ -36,7 +36,7 @@ def login():
 
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
-
+            populate_db()
             return redirect(url_for('pages.home'))
     
     return render_template('auth/login.html', title='Autentificare', form=form)
