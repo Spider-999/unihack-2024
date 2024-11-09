@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .gradient-bg {
+        background-image: linear-gradient(to bottom, white, #a9c9ff);
+    }
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="container gradient-bg rounded">
+    <div class="card-group py-5">
+        <div class="card rounded shadow">
+            <a href="{{ url_for('pages.invata_matematica') }}">
+                <img class="card-img-top" src="/static/materii/matematica.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title text-success fw-bold">Matematica</h5>
+                <p class="card-text">Invata matematica</p>
+            </div>
+        </div>
+
+        <div class="card rounded shadow">
+            <a href="{{ url_for('pages.invata_info') }}">
+                <img class="card-img-top" src="/static/materii/informatica.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title text-primary fw-bold">Informatica</h5>
+                <p class="card-text">Invata informatica</p>
+            </div>
+        </div>
+
+        <div class="card rounded shadow">
+            <a href="fizica.html">
+                <img class="card-img-top" src="/static/materii/fizica.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title text-danger fw-bold">Fizica</h5>
+                <p class="card-text">Invata fizica</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
