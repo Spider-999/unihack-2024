@@ -1,0 +1,54 @@
+.article-content {
+    white-space: pre-line;
+  }
+  
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+}
+  
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+
+.badge-img
+{
+    height: 64px;
+    width: 64px;
+}
+
+
+.navbar
+{
+    height: 120px;
+}
+
+
+.nav-link
+{
+    font-size: 24px;
+}
+
+
+.navbar-brand
+{
+    font-size: xx-large;
+}
+
+
+.card
+{
+    margin: 40px;
+    margin-left: 20;
+    margin-right: 20;
+}
+
+.card-img-top
+{
+    height: 420px;
+}
