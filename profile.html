@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-xl-4">
             <!-- Profile picture card-->
-            <div class="card mb-4 mb-xl-0 shadow-sm rounded-3">
+            <div class="card mb-4 mb-xl-0 shadow rounded-3">
                 <div class="card-header text-center fw-bold bg-primary text-light py-3">Poza de Profil</div>
                 <div class="card-body text-center p-4">
                     <!-- Profile picture image-->
@@ -20,7 +20,7 @@
                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;"
                                 data-experience-percentage="{{ current_user.experience | tojson }}"></div>
                             </div>
-                        <h6 class="mt-2 text-muted">{{ current_user.experience }} experienta</h6>
+                        <p class="text-muted">{{ current_user.experience }} experienta</p>
                     </div>
                     
                     <!-- Upload Form -->
@@ -40,7 +40,7 @@
 
         <!-- Account details card-->
         <div class="col-xl-8">
-            <div class="card mb-4 shadow-sm rounded-3">
+            <div class="card mb-4 shadow rounded-3">
                 <div class="card-header text-center fw-bold bg-primary text-light py-3">Detalii cont</div>
                 <div class="card-body p-4">
                     
@@ -63,9 +63,10 @@
                                 <div class="d-flex flex-wrap gap-2">
                                     <span>
                                 {% for badge in current_user.badges %}
-                                    <p> {{ badge.name }} 
-                                    <img class="rounded-circle badge-img" 
-                                    src="{{image_file}}"> </p>
+                                <p> 
+                                    <img class="rounded-circle badge-img small-badge-img" src="{{ image_file }}" alt="Badge Image">
+                                    <span class="bg-success text-light fw-bold px-2 py-1 rounded-pill">{{ badge.name }}</span> <span class="text-muted">{{ badge.description }}</span>
+                                </p>
                                 {% endfor %}
                             </span>
                                 </div>
