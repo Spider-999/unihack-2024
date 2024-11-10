@@ -1,0 +1,17 @@
+[
+    {"question_text":"Ordonati crescator numerele:1050,2045,30,100,55,4",
+     "lesson_id":"1", "answer":"4,30,55,100,1050,2045"},
+    {"question_text":"Ordonati descrescator numerele: 3205, 403, 2001, 6", 
+    "lesson_id":"1", "answer":"3205,2001,403,6"},
+    {"question_text":"Ordonati crescator numerele:60,43,2,6,1,74,32", 
+    "lesson_id":"1", "answer":"1,2,6,32,43,60,74"},
+    {"question_text":"Dati factor comun pe 3:3*5+3*9+3*0+3*1",
+    "lesson_id":"2", "answer":"3*(5+9+1)"},
+    {"question_text":"Desfaceti parantezele:5*(x+y)",
+    "lesson_id":"2", "answer":"5*x+5*y"},
+    {"question_text":"Care este rezultatul dupa calcul a urmatoarei expresii:5(4+3)+3(7*2+6/3)",
+    "lesson_id":"2", "answer":"83"},
+    {"question_text":"3^3=", "lesson_id":"3", "answer":"27"},
+    {"question_text":"6^3=", "lesson_id":"3", "answer":"216"},
+    {"question_text":"2^4=", "lesson_id":"3", "answer":"16"}
+]
