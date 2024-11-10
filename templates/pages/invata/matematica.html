@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Eroare</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Nu este disponibil momentan.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container rounded" style="background-color: #dbeeff;">
+    <div class="row">
+        <!-- CLASA a 5-a (this one will remain as is) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 5-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 5-a</p>
+                    <a href="{{ url_for('learn.classes', page_id=5) }}" class="btn btn-primary">Invata</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASA a 6-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 6-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 6-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASA a 7-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 7-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 7-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASA a 8-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 8-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 8-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- CLASA a 9-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 9-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 9-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASA a 10-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 10-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 10-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASA a 11-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 11-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 11-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASA a 12-a (trigger error modal) -->
+        <div class="col-12 col-md-3 mb-3">
+            <div class="card shadow hover-pop">
+                <div class="card-body p-4">
+                    <h5 class="card-title text-primary fw-bold">CLASA a 12-a</h5>
+                    <p class="card-text text-muted" style="font-size: 15px;">Invata materia de CLASA a 12-a</p>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#errorModal">Invata</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

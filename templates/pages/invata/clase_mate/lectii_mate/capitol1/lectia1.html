@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container px-4 text-center">
+    <!-- Centered Image -->
+    <img src="{{ url_for('static', filename=img) }}" 
+         alt="Responsive Image" 
+         class="img-fluid shadow-lg rounded d-block mx-auto">
+
+    <!-- Centered Form -->
+    <form id="theme" method="POST" class="mt-5 mx-auto" style="width: 20rem;">
+        {{ theme_form.hidden_tag() }}
+        <h4 class="fw-bold text-secondary">ALEGE TEMATICA LECTIEI</h4> 
+        {{ theme_form.themes(class="form-control mx-2") }}
+        <div class="pb-3"></div>
+        {{ theme_form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+
+
+
+<div class="container my-5 px-4">
+    <!-- Text Container -->
+    <div class="container bg-light rounded shadow-sm p-4 mb-4">
+        <span style="white-space: pre-line">{{ text }}</span>
+    </div>
+
+    <!-- Exercise Section -->
+    <div class="container bg-white rounded shadow-sm p-6">
+        <h3 class="fw-bold text-primary mb-4">Exerciții</h3>
+        
+        <form name='questions' method="POST">
+            {% for form in forms %}
+                {{ form.hidden_tag() }}
+                
+                <!-- Question Container -->
+                <div class="mb-4">
+                    <p class="fw-semibold">{{ questions[loop.index0].question_text }}</p>
+                    
+                    {% if questions[loop.index0].completed %}
+                        <p>
+                            {{ form.question(readonly=true, class="form-control-plaintext text-success") }} 
+                            <span class="text-success fw-bold">Răspuns corect!</span>
+                        </p>
+                    {% else %}
+                        <div class="mb-2">
+                            {{ form.question(class="form-control") }}
+                        </div>
+                        <div>
+                            {{ form.submit(class="btn btn-primary mb-3") }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

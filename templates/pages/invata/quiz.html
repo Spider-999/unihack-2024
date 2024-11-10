@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="difficulty">
+
+    <button class="difficulty-button" data-duration="600">Usor (10 minute)</button>
+
+    <button class="difficulty-button" data-duration="300">Mediu (5 minute)</button>
+
+    <button class="difficulty-button" data-duration="60">Hard (1 minut)</button>
+
+</div>
+
+<button id="endButton" style="display: none;">Opreste testul</button>
+
+<button id="startButton">Incepe testul</button>
+
+<div id="timer">0 secunde</div>
+
+
+<script>
+    let countdownInterval;
+
+    let remainingTime;
+
+
+    const startButton = document.getElementById('startButton');
+    const endButton = document.getElementById('endButton')
+    const timerDisplay = document.getElementById('timer');
+
+    const forms = document.getElementById('forms')
+
+    const difficultyButtons = document.querySelectorAll('.difficulty-button');
+
+
+    let selectedDuration = null;
+
+
+    // Add event listeners to difficulty buttons
+
+    difficultyButtons.forEach(button => {
+
+        button.addEventListener('click', () => {
+
+            // Remove active class from all buttons
+
+            difficultyButtons.forEach(btn => btn.classList.remove('active'));
+
+            
+
+            // Add active class to the clicked button
+
+            button.classList.add('active');
+
+
+            // Get the duration from the data attribute
+
+            selectedDuration = parseInt(button.getAttribute('data-duration'));
+
+            timerDisplay.textContent = `${selectedDuration} secunde`; // Display selected duration
+
+        });
+
+    });
+
+
+    startButton.addEventListener('click', () => {
+
+        // Clear any existing timer
+
+        clearInterval(countdownInterval);
+
+
+        // Check if a duration has been selected
+
+        if (!selectedDuration) {
+
+            alert("Selecteaza un nivel de dificulate.");
+
+            return;
+
+        }
+
+
+        forms.style.display = 'block'
+        endButton.style.display = 'block'
+
+        // Hide difficulty buttons and start button
+
+        difficultyButtons.forEach(button => {
+
+            button.style.display = 'none';
+
+        });
+
+        startButton.style.display = 'none'; // Hide the start button
+        
+
+        // Set remaining time
+
+        remainingTime = selectedDuration;
+
+
+        // Start the countdown
+
+        countdownInterval = setInterval(() => {
+
+            if (remainingTime > 0) 
+            {
+                timerDisplay.textContent = `${remainingTime} secunde`;
+                remainingTime--;
+            } 
+            else 
+            {
+                clearInterval(countdownInterval);
+                timerDisplay.textContent = "Timpul s-a sfarsit!";
+                forms.style.display = 'none'
+            }
+
+        }, 1000);
+
+    })
+
+    endButton.addEventListener('click', () =>{
+        remainingTime = 0;
+        difficultyButtons.forEach(button => {
+
+        button.style.display = 'block';
+
+        });
+
+        startButton.style.display = 'block';
+        endButton.style.display = 'none';
+        forms.style.display = 'none';
+    });
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .gradient-bg {
+        background-image: linear-gradient(to bottom, white, #fff5d6);
+    }
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="container gradient-bg rounded">
+    <div class="card-group py-5">
+        <!-- Matematica Card - normal link -->
+        <div class="card rounded shadow">
+            <a href="{{ url_for('pages.invata_matematica') }}">
+                <img class="card-img-top" src="/static/materii/matematica.jpg" alt="Card image cap">
+            </a>
+            <div class="card-body d-flex flex-column align-items-center text-center">
+                <h1 class="card-title text-success fw-bold">Matematica</h1>
+                <p class="card-text text-muted">Invata matematica</p>
+            </div>
+        </div>
+
+        <!-- Informatica Card - Trigger modal on click -->
+        
+            <button type="button" class="card rounded shadow" data-bs-toggle="modal" data-bs-target="#errorModalInformatica">
+                <img class="card-img-top" src="/static/materii/informatica.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-center text-center">
+                    <h1 class="card-title text-primary fw-bold">Informatica</h1>
+                    <p class="card-text text-muted">Invata informatica</p>
+                </div>
+            </button>
+        
+
+        <!-- Fizica Card - Trigger modal on click -->
+        
+            <button type="button" class="card rounded shadow" data-bs-toggle="modal" data-bs-target="#errorModalFizica">
+                <img class="card-img-top" src="/static/materii/fizica.jpg" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-center text-center">
+                    <h1 class="card-title text-danger fw-bold">Fizica</h1>
+                    <p class="card-text text-muted">Invata fizica</p>
+                </div>
+            </button>
+        
+    </div>
+</div>
+
+<!-- Informatica Modal -->
+<div class="modal fade" id="errorModalInformatica" tabindex="-1" aria-labelledby="errorModalInformaticaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalInformaticaLabel">Eroare</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Nu e disponibil momentan.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Fizica Modal -->
+<div class="modal fade" id="errorModalFizica" tabindex="-1" aria-labelledby="errorModalFizicaLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalFizicaLabel">Eroare</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Nu e disponibil momentan.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Închide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
